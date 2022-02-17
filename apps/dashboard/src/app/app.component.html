@@ -1,1 +1,5 @@
-<nx-ng-dashboard-nx-welcome></nx-ng-dashboard-nx-welcome>
+<div *ngIf="testResults$ | async as results">
+  <div *ngFor="let result of results">
+    {{ result.timeCreated | date }} : {{ result | json }}
+  </div>
+</div>

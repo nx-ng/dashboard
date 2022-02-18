@@ -1,0 +1,21 @@
+<div
+  class="p-4 rounded text-slate-100 cursor-pointer mb-2 transition-colors flex"
+  [ngClass]="{
+    'bg-blue-nx-base font-semibold': !expanded,
+    'bg-blue-nx-dark font-extrabold': expanded
+  }"
+  (click)="toggle()"
+>
+  <fa-icon
+    [icon]="faCircleChevronDown"
+    class="mr-4 transition-transform"
+    [ngClass]="{
+      'rotate-0': !expanded,
+      'rotate-180': expanded
+    }"
+  ></fa-icon
+  ><ng-content select="[accordionTitle]"></ng-content>
+</div>
+<div *ngIf="expanded" class="p-4">
+  <ng-content select="[accordionContent]"></ng-content>
+</div>

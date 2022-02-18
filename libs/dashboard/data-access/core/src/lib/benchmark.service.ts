@@ -14,7 +14,7 @@ import { Benchmark, BenchmarkGroup } from './models/benchmark';
 @Injectable({
   providedIn: 'root',
 })
-export class BenchmkarkService {
+export class BenchmarkService {
   currentVersion$: Observable<BenchmarkGroup> | undefined;
   previousNxMinorVersion$: Observable<BenchmarkGroup> | undefined;
   previousNgMajorVersion$: Observable<BenchmarkGroup> | undefined;
@@ -67,7 +67,7 @@ export class BenchmkarkService {
       collectionData(
         collection(
           this.firestore,
-          BENCHMARK_KEYS[benchmarkVersion].lint.warm
+          BENCHMARK_KEYS[benchmarkVersion].lint.cold
         ) as CollectionReference<Benchmark>,
         { idField: 'timeCreated' }
       ),

@@ -18,11 +18,15 @@
       "@nx-ng-dashboard/dashboard/data-access/core": [
         "libs/dashboard/data-access/core/src/index.ts"
       ],
+      "@nx-ng-dashboard/dashboard/feature/benchmark-results": [
+        "libs/dashboard/feature/benchmark-results/src/index.ts"
+      ],
       "@nx-ng-dashboard/dashboard/feature/shell": [
         "libs/dashboard/feature/shell/src/index.ts"
       ],
       "@nx-ng-dashboard/shared/env": ["libs/shared/env/src/index.ts"],
-      "@nx-ng-dashboard/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@nx-ng-dashboard/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@nx-ng-dashboard/shared/util": ["libs/shared/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

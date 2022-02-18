@@ -1,0 +1,59 @@
+<ng-container *ngIf="benchmarkGroup$">
+  <div *ngIf="benchmarkGroup$ | async as benchmarkGroup">
+    <div class="grid grid-cols-1 grid-rows-3 gap-2">
+      <nx-ng-dashboard-accordion [expanded]="true">
+        <h2 accordionTitle>Builds</h2>
+        <div accordionContent class="grid grid-cols-2 grid-rows-1 gap-2">
+          <nx-ng-dashboard-panel>
+            <nx-ng-dashboard-benchmark-results
+              [benchmarks]="benchmarkGroup.buildCold"
+              >Build - Cold</nx-ng-dashboard-benchmark-results
+            >
+          </nx-ng-dashboard-panel>
+          <nx-ng-dashboard-panel>
+            <nx-ng-dashboard-benchmark-results
+              [benchmarks]="benchmarkGroup.buildWarm"
+              >Build - Warm</nx-ng-dashboard-benchmark-results
+            >
+          </nx-ng-dashboard-panel>
+        </div>
+      </nx-ng-dashboard-accordion>
+
+      <nx-ng-dashboard-accordion [expanded]="true">
+        <h2 accordionTitle>Test</h2>
+        <div accordionContent class="grid grid-cols-2 grid-rows-1 gap-2">
+          <nx-ng-dashboard-panel>
+            <nx-ng-dashboard-benchmark-results
+              [benchmarks]="benchmarkGroup.testCold"
+              >Test - Cold</nx-ng-dashboard-benchmark-results
+            >
+          </nx-ng-dashboard-panel>
+          <nx-ng-dashboard-panel>
+            <nx-ng-dashboard-benchmark-results
+              [benchmarks]="benchmarkGroup.testWarm"
+              >Test - Warm</nx-ng-dashboard-benchmark-results
+            >
+          </nx-ng-dashboard-panel>
+        </div>
+      </nx-ng-dashboard-accordion>
+
+      <nx-ng-dashboard-accordion [expanded]="true">
+        <h2 accordionTitle>Lint</h2>
+        <div accordionContent class="grid grid-cols-2 grid-rows-1 gap-2">
+          <nx-ng-dashboard-panel>
+            <nx-ng-dashboard-benchmark-results
+              [benchmarks]="benchmarkGroup.lintCold"
+              >Lint - Cold</nx-ng-dashboard-benchmark-results
+            >
+          </nx-ng-dashboard-panel>
+          <nx-ng-dashboard-panel>
+            <nx-ng-dashboard-benchmark-results
+              [benchmarks]="benchmarkGroup.lintWarm"
+              >Lint - Warm</nx-ng-dashboard-benchmark-results
+            >
+          </nx-ng-dashboard-panel>
+        </div>
+      </nx-ng-dashboard-accordion>
+    </div>
+  </div>
+</ng-container>

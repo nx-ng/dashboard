@@ -1,12 +1,28 @@
-<div
-  class="w-screen h-screen max-h-screen bg-gradient-to-b from-white to-slate-200"
->
+<div class="w-screen h-screen max-h-screen">
   <div class="p-4 bg-blue-nx-dark text-slate-100">
     <h1 class="text-4xl">Nx Angular Performance Monitoring</h1>
   </div>
   <div class="p-4">
-    <div class="grid grid-cols-3 grid-rows-3">
-      <nx-ng-dashboard-panel> Lorem ipsum data in here </nx-ng-dashboard-panel>
-    </div>
+    <nx-ng-dashboard-accordion>
+      <h2 accordionTitle>Current Version</h2>
+      <nx-ng-dashboard-benchmark-group
+        accordionContent
+        version="currentVersion"
+      ></nx-ng-dashboard-benchmark-group>
+    </nx-ng-dashboard-accordion>
+    <nx-ng-dashboard-accordion>
+      <h2 accordionTitle>Previous Nx Minor Version</h2>
+      <nx-ng-dashboard-benchmark-group
+        accordionContent
+        version="previousNxMinorVersion"
+      ></nx-ng-dashboard-benchmark-group>
+    </nx-ng-dashboard-accordion>
+    <nx-ng-dashboard-accordion>
+      <h2 accordionTitle>Previous Ng Major Version</h2>
+      <nx-ng-dashboard-benchmark-group
+        accordionContent
+        version="previousNgMajorVersion"
+      ></nx-ng-dashboard-benchmark-group>
+    </nx-ng-dashboard-accordion>
   </div>
 </div>

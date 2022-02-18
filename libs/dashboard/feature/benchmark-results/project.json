@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/dashboard/feature/benchmark-results",
+  "sourceRoot": "libs/dashboard/feature/benchmark-results/src",
+  "prefix": "nx-ng-dashboard",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dashboard/feature/benchmark-results"],
+      "options": {
+        "jestConfig": "libs/dashboard/feature/benchmark-results/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard/feature/benchmark-results/src/**/*.ts",
+          "libs/dashboard/feature/benchmark-results/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

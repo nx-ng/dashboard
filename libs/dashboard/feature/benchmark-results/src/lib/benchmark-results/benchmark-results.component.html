@@ -1,0 +1,67 @@
+<h2 class="text-lg font-extrabold"><ng-content></ng-content></h2>
+<div class="flex flex-col">
+  <div
+    class="grid grid-rows-1 grid-cols-5 border-b-2 border-solid border-b-purple-nx-base mb-4 font-semibold text-green-nx-base"
+  >
+    <h4>Date</h4>
+    <h4>Avg</h4>
+    <h4>Range</h4>
+    <h4 class="col-span-2">Metadata</h4>
+  </div>
+  <div
+    class="grid grid-rows-1 grid-cols-5 border-b-blue-nx-dark border-b-2 border-solid mb-2 pb-2"
+    *ngFor="let benchmark of benchmarks | sortBy: 'timeCreated':'desc'"
+  >
+    <div class="font-bold">
+      {{ benchmark.timeCreated | date: 'medium' }}
+    </div>
+    <div>{{ benchmark.results[0].mean | toSeconds }}</div>
+    <div>
+      {{ benchmark.results[0].min | toSeconds }} -
+      {{ benchmark.results[0].max | toSeconds }}
+    </div>
+    <div class="col-span-2 grid grid-rows-2 grid-cols-2">
+      <div class="font-bold">Angular Version:</div>
+      <div>{{ benchmark.angularVersion }}</div>
+      <ng-container
+        *ngIf="!benchmark.nxVersion.startsWith('file:'); else noNxVersion"
+      >
+        <div class="font-bold">Nx Version:</div>
+        <div>
+          {{ benchmark.nxVersion }}
+        </div>
+      </ng-container>
+      <ng-template #noNxVersion>
+        <div>
+          <span *ngIf="benchmark.nxCommit" class="font-bold">Nx Commit:</span>
+          <span
+            *ngIf="
+              (benchmark.nxBranch && !benchmark.nxPR) ||
+              (!benchmark.nxCommit && !benchmark.nxBranch && !benchmark.nxPR)
+            "
+            class="font-bold"
+          >
+            Nx Branch:
+          </span>
+          <span *ngIf="benchmark.nxPR" class="font-bold">Nx PR:</span>
+        </div>
+        <div>
+          <span *ngIf="benchmark.nxCommit" class="font-bold">{{
+            benchmark.nxCommit
+          }}</span>
+          <span
+            *ngIf="
+              (benchmark.nxBranch && !benchmark.nxPR) ||
+              (!benchmark.nxCommit && !benchmark.nxBranch && !benchmark.nxPR)
+            "
+          >
+            {{ benchmark.nxBranch ?? 'master' }}
+          </span>
+          <span *ngIf="benchmark.nxPR" class="font-bold">{{
+            benchmark.nxPR
+          }}</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -11,17 +11,58 @@
     <h3>Test</h3>
     <h3>Lint</h3>
   </div>
-  <div class="grid grid-rows-3 gap-1">
+  <div class="flex flex-col">
     <nx-ng-dashboard-result-row [benchmark]="latestResults.currentVersion"
-      >Current Version</nx-ng-dashboard-result-row
+      ><h2>Current Version</h2>
+      <small class="rounded-full py-1 px-2 bg-blue-nx-base text-white">
+        <span *ngIf="latestResults.currentVersion.buildCold.nxCommit"
+          >Nx Commit:
+          {{ latestResults.currentVersion.buildCold.nxCommit }}</span
+        >
+        <span
+          *ngIf="
+            (latestResults.currentVersion.buildCold.nxBranch &&
+              !latestResults.currentVersion.buildCold.nxPR) ||
+            (!latestResults.currentVersion.buildCold.nxCommit &&
+              !latestResults.currentVersion.buildCold.nxBranch &&
+              !latestResults.currentVersion.buildCold.nxPR)
+          "
+        >
+          Nx Branch:
+          {{ latestResults.currentVersion.buildCold.nxBranch ?? 'master' }}
+        </span>
+        <span *ngIf="latestResults.currentVersion.buildCold.nxPR"
+          >Nx PR: {{ latestResults.currentVersion.buildCold.nxPR }}</span
+        > </small
+      ><br />
+      <small class="rounded-full py-1 px-2 bg-red-800 text-white">
+        Ng Version:
+        {{ latestResults.currentVersion.buildCold.angularVersion }}
+      </small></nx-ng-dashboard-result-row
     >
     <nx-ng-dashboard-result-row
       [benchmark]="latestResults.previousNxMinorVersion"
-      >Previous Nx Minor Version</nx-ng-dashboard-result-row
+      ><h2>Previous Nx Minor Version</h2>
+      <small class="rounded-full py-1 px-2 bg-blue-nx-base text-white">
+        Nx Version:
+        {{ latestResults.previousNxMinorVersion.buildCold.nxVersion }} </small
+      ><br />
+      <small class="rounded-full py-1 px-2 bg-red-800 text-white">
+        Ng Version:
+        {{ latestResults.previousNxMinorVersion.buildCold.angularVersion }}
+      </small></nx-ng-dashboard-result-row
     >
     <nx-ng-dashboard-result-row
       [benchmark]="latestResults.previousNgMajorVersion"
-      >Previous Ng Major Version</nx-ng-dashboard-result-row
+      ><h2>Previous Ng Major Version</h2>
+      <small class="rounded-full py-1 px-2 bg-blue-nx-base text-white">
+        Nx Version:
+        {{ latestResults.previousNgMajorVersion.buildCold.nxVersion }} </small
+      ><br />
+      <small class="rounded-full py-1 px-2 bg-red-800 text-white">
+        Ng Version:
+        {{ latestResults.previousNgMajorVersion.buildCold.angularVersion }}
+      </small></nx-ng-dashboard-result-row
     >
   </div>
 </nx-ng-dashboard-panel>

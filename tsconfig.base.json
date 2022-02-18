@@ -15,7 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-ng-dashboard/shared/env": ["libs/shared/env/src/index.ts"]
+      "@nx-ng-dashboard/dashboard/data-access/core": [
+        "libs/dashboard/data-access/core/src/index.ts"
+      ],
+      "@nx-ng-dashboard/dashboard/feature/shell": [
+        "libs/dashboard/feature/shell/src/index.ts"
+      ],
+      "@nx-ng-dashboard/shared/env": ["libs/shared/env/src/index.ts"],
+      "@nx-ng-dashboard/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

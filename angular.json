@@ -2,7 +2,10 @@
   "version": 2,
   "projects": {
     "dashboard": "apps/dashboard",
+    "dashboard-data-access-core": "libs/dashboard/data-access/core",
     "dashboard-e2e": "apps/dashboard-e2e",
-    "shared-env": "libs/shared/env"
+    "dashboard-feature-shell": "libs/dashboard/feature/shell",
+    "shared-env": "libs/shared/env",
+    "shared-ui": "libs/shared/ui"
   }
 }

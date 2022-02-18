@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/dashboard/data-access/core",
+  "sourceRoot": "libs/dashboard/data-access/core/src",
+  "prefix": "nx-ng-dashboard",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dashboard/data-access/core"],
+      "options": {
+        "jestConfig": "libs/dashboard/data-access/core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard/data-access/core/src/**/*.ts",
+          "libs/dashboard/data-access/core/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

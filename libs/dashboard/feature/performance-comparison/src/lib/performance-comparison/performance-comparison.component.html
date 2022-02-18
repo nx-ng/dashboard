@@ -1,0 +1,74 @@
+<nx-ng-dashboard-panel
+  [darkMode]="false"
+  *ngIf="comparisons$ | async as comparisons"
+  class="relative"
+>
+  <button
+    class="absolute right-1 rounded-full p-1 px-2 text-sm border-2 border-solid border-purple-nx-base text-purple-nx-base cursor-pointer hover:bg-purple-nx-base hover:text-white hover:transition-colors"
+    (click)="togglePercentage()"
+  >
+    {{ displayPercentage ? 'Show Values' : 'Show %' }}
+  </button>
+  <h2 class="text-lg text-blue-nx-dark font-bold mb-4">
+    Current vs Previous Nx Minor
+  </h2>
+  <div class="grid grid-rows-1 grid-cols-3 gap-2">
+    <nx-ng-dashboard-panel>
+      <h2 class="text-lg text-center font-semibold mb-1">
+        Build <small class="text-slate-400"><em>(cold)</em></small>
+      </h2>
+      <div
+        class="rounded-full p-4 text-center font-extrabold text-white text-2xl"
+        [ngClass]="{
+          'bg-red-400': comparisons.buildAbsolute >= 0,
+          'bg-green-nx-base': comparisons.buildAbsolute < 0
+        }"
+      >
+        {{ comparisons.buildAbsolute >= 0 ? '+' : '-' }}
+        {{
+          displayPercentage
+            ? (comparisons.buildPercentage | number) + '%'
+            : (comparisons.buildAbsolute | toSeconds)
+        }}
+      </div>
+    </nx-ng-dashboard-panel>
+    <nx-ng-dashboard-panel>
+      <h2 class="text-lg text-center font-semibold mb-1">
+        Test <small class="text-slate-400"><em>(cold)</em></small>
+      </h2>
+      <div
+        class="rounded-full p-4 text-center font-extrabold text-white text-2xl"
+        [ngClass]="{
+          'bg-red-400': comparisons.testAbsolute >= 0,
+          'bg-green-nx-base': comparisons.testAbsolute < 0
+        }"
+      >
+        {{ comparisons.testAbsolute >= 0 ? '+' : '-' }}
+        {{
+          displayPercentage
+            ? (comparisons.testPercentage | number) + '%'
+            : (comparisons.testAbsolute | toSeconds)
+        }}
+      </div>
+    </nx-ng-dashboard-panel>
+    <nx-ng-dashboard-panel>
+      <h2 class="text-lg text-center font-semibold mb-1">
+        Lint <small class="text-slate-400"><em>(cold)</em></small>
+      </h2>
+      <div
+        class="rounded-full p-4 text-center font-extrabold text-white text-2xl"
+        [ngClass]="{
+          'bg-red-400': comparisons.lintAbsolute >= 0,
+          'bg-green-nx-base': comparisons.lintAbsolute < 0
+        }"
+      >
+        {{ comparisons.lintAbsolute >= 0 ? '+' : '-' }}
+        {{
+          displayPercentage
+            ? (comparisons.lintPercentage | number) + '%'
+            : (comparisons.lintAbsolute | toSeconds)
+        }}
+      </div>
+    </nx-ng-dashboard-panel>
+  </div>
+</nx-ng-dashboard-panel>

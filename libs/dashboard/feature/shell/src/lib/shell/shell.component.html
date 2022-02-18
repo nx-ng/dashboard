@@ -3,9 +3,18 @@
     <h1 class="text-4xl">Nx Angular Performance Monitoring</h1>
   </div>
   <div class="p-4">
-    <div class="w-1/2 sm:w-100 mb-2">
+    <div class="grid grid-rows-1 grid-cols-2 mb-2 gap-2">
       <nx-ng-dashboard-latest-results></nx-ng-dashboard-latest-results>
+      <nx-ng-dashboard-performance-comparison
+        versionToCompare="currentVersion"
+        comparisonTarget="previousNxMinorVersion"
+      ></nx-ng-dashboard-performance-comparison>
     </div>
+    <h2
+      class="text-3xl pb-2 border-b-2 border-b-blue-nx-dark border-solid mt-8 mb-4"
+    >
+      Benchmark History
+    </h2>
     <nx-ng-dashboard-accordion>
       <h2 accordionTitle>Current Version</h2>
       <nx-ng-dashboard-benchmark-group

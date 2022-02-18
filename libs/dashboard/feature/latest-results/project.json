@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/dashboard/feature/latest-results",
+  "sourceRoot": "libs/dashboard/feature/latest-results/src",
+  "prefix": "nx-ng-dashboard",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dashboard/feature/latest-results"],
+      "options": {
+        "jestConfig": "libs/dashboard/feature/latest-results/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard/feature/latest-results/src/**/*.ts",
+          "libs/dashboard/feature/latest-results/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

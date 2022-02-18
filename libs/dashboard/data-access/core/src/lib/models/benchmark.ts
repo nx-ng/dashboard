@@ -1,3 +1,9 @@
+export interface LatestResults {
+  currentVersion: SingleBenchmarkGroup;
+  previousNxMinorVersion: SingleBenchmarkGroup;
+  previousNgMajorVersion: SingleBenchmarkGroup;
+}
+
 export interface BenchmarkResults {
   command: string;
   max: number;
@@ -23,4 +29,12 @@ export interface BenchmarkGroup {
   testWarm: Benchmark[];
   lintCold: Benchmark[];
   lintWarm: Benchmark[];
+}
+export interface SingleBenchmarkGroup {
+  buildCold: Benchmark;
+  buildWarm: Benchmark;
+  testCold: Benchmark;
+  testWarm: Benchmark;
+  lintCold: Benchmark;
+  lintWarm: Benchmark;
 }

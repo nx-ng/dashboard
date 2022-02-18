@@ -1,0 +1,27 @@
+<nx-ng-dashboard-panel
+  [darkMode]="false"
+  *ngIf="latestResults$ | async as latestResults"
+>
+  <h2 class="text-lg font-bold mb-1">Latest Results</h2>
+  <div
+    class="grid grid-rows-1 grid-cols-4 gap-1 text-purple-nx-base font-extrabold mb-1 border-b-2 border-solid border-green-nx-base"
+  >
+    <h3>Version</h3>
+    <h3>Build</h3>
+    <h3>Test</h3>
+    <h3>Lint</h3>
+  </div>
+  <div class="grid grid-rows-3 gap-1">
+    <nx-ng-dashboard-result-row [benchmark]="latestResults.currentVersion"
+      >Current Version</nx-ng-dashboard-result-row
+    >
+    <nx-ng-dashboard-result-row
+      [benchmark]="latestResults.previousNxMinorVersion"
+      >Previous Nx Minor Version</nx-ng-dashboard-result-row
+    >
+    <nx-ng-dashboard-result-row
+      [benchmark]="latestResults.previousNgMajorVersion"
+      >Previous Ng Major Version</nx-ng-dashboard-result-row
+    >
+  </div>
+</nx-ng-dashboard-panel>

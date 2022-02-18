@@ -21,6 +21,9 @@
       "@nx-ng-dashboard/dashboard/feature/benchmark-results": [
         "libs/dashboard/feature/benchmark-results/src/index.ts"
       ],
+      "@nx-ng-dashboard/dashboard/feature/latest-results": [
+        "libs/dashboard/feature/latest-results/src/index.ts"
+      ],
       "@nx-ng-dashboard/dashboard/feature/shell": [
         "libs/dashboard/feature/shell/src/index.ts"
       ],

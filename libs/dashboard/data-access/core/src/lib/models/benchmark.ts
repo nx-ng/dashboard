@@ -24,17 +24,13 @@ export interface Benchmark {
 
 export interface BenchmarkGroup {
   buildCold: Benchmark[];
-  buildWarm: Benchmark[];
+  buildCache: Benchmark[];
   testCold: Benchmark[];
-  testWarm: Benchmark[];
   lintCold: Benchmark[];
-  lintWarm: Benchmark[];
 }
 export interface SingleBenchmarkGroup {
   buildCold: Benchmark;
-  buildWarm: Benchmark;
+  buildCache: Benchmark;
   testCold: Benchmark;
-  testWarm: Benchmark;
   lintCold: Benchmark;
-  lintWarm: Benchmark;
 }

@@ -47,27 +47,21 @@ export class BenchmarkService {
           return {
             currentVersion: {
               buildCold: currentVersion.buildCold.reverse()[0],
-              buildWarm: currentVersion.buildWarm.reverse()[0],
+              buildCache: currentVersion.buildCache.reverse()[0],
               testCold: currentVersion.testCold.reverse()[0],
-              testWarm: currentVersion.testWarm.reverse()[0],
               lintCold: currentVersion.lintCold.reverse()[0],
-              lintWarm: currentVersion.lintWarm.reverse()[0],
             },
             previousNxMinorVersion: {
               buildCold: previousNxMinorVersion.buildCold.reverse()[0],
-              buildWarm: previousNxMinorVersion.buildWarm.reverse()[0],
+              buildCache: previousNxMinorVersion.buildCache.reverse()[0],
               testCold: previousNxMinorVersion.testCold.reverse()[0],
-              testWarm: previousNxMinorVersion.testWarm.reverse()[0],
               lintCold: previousNxMinorVersion.lintCold.reverse()[0],
-              lintWarm: previousNxMinorVersion.lintWarm.reverse()[0],
             },
             previousNgMajorVersion: {
               buildCold: previousNgMajorVersion.buildCold.reverse()[0],
-              buildWarm: previousNgMajorVersion.buildWarm.reverse()[0],
+              buildCache: previousNgMajorVersion.buildCache.reverse()[0],
               testCold: previousNgMajorVersion.testCold.reverse()[0],
-              testWarm: previousNgMajorVersion.testWarm.reverse()[0],
               lintCold: previousNgMajorVersion.lintCold.reverse()[0],
-              lintWarm: previousNgMajorVersion.lintWarm.reverse()[0],
             },
           };
         }
@@ -89,7 +83,7 @@ export class BenchmarkService {
       collectionData(
         collection(
           this.firestore,
-          BENCHMARK_KEYS[benchmarkVersion].build.warm
+          BENCHMARK_KEYS[benchmarkVersion].build.cache
         ) as CollectionReference<Benchmark>,
         { idField: 'timeCreated' }
       ),
@@ -103,33 +97,17 @@ export class BenchmarkService {
       collectionData(
         collection(
           this.firestore,
-          BENCHMARK_KEYS[benchmarkVersion].test.warm
-        ) as CollectionReference<Benchmark>,
-        { idField: 'timeCreated' }
-      ),
-      collectionData(
-        collection(
-          this.firestore,
           BENCHMARK_KEYS[benchmarkVersion].lint.cold
         ) as CollectionReference<Benchmark>,
         { idField: 'timeCreated' }
       ),
-      collectionData(
-        collection(
-          this.firestore,
-          BENCHMARK_KEYS[benchmarkVersion].lint.warm
-        ) as CollectionReference<Benchmark>,
-        { idField: 'timeCreated' }
-      ),
     ]).pipe(
-      map(([buildCold, buildWarm, testCold, testWarm, lintCold, lintWarm]) => {
+      map(([buildCold, buildCache, testCold, lintCold]) => {
         return {
           buildCold,
-          buildWarm,
+          buildCache,
           testCold,
-          testWarm,
           lintCold,
-          lintWarm,
         };
       })
     );

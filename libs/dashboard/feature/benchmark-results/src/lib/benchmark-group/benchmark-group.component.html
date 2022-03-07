@@ -12,8 +12,8 @@
           </nx-ng-dashboard-panel>
           <nx-ng-dashboard-panel>
             <nx-ng-dashboard-benchmark-results
-              [benchmarks]="benchmarkGroup.buildWarm"
-              >Build - Warm</nx-ng-dashboard-benchmark-results
+              [benchmarks]="benchmarkGroup.buildCache"
+              >Build - Cache</nx-ng-dashboard-benchmark-results
             >
           </nx-ng-dashboard-panel>
         </div>
@@ -21,17 +21,11 @@
 
       <nx-ng-dashboard-accordion [expanded]="true">
         <h2 accordionTitle>Test</h2>
-        <div accordionContent class="grid grid-cols-2 grid-rows-1 gap-2">
+        <div accordionContent class="grid grid-cols-1 grid-rows-1 gap-2">
           <nx-ng-dashboard-panel>
             <nx-ng-dashboard-benchmark-results
               [benchmarks]="benchmarkGroup.testCold"
               >Test - Cold</nx-ng-dashboard-benchmark-results
-            >
-          </nx-ng-dashboard-panel>
-          <nx-ng-dashboard-panel>
-            <nx-ng-dashboard-benchmark-results
-              [benchmarks]="benchmarkGroup.testWarm"
-              >Test - Warm</nx-ng-dashboard-benchmark-results
             >
           </nx-ng-dashboard-panel>
         </div>
@@ -39,17 +33,11 @@
 
       <nx-ng-dashboard-accordion [expanded]="true">
         <h2 accordionTitle>Lint</h2>
-        <div accordionContent class="grid grid-cols-2 grid-rows-1 gap-2">
+        <div accordionContent class="grid grid-cols-1 grid-rows-1 gap-2">
           <nx-ng-dashboard-panel>
             <nx-ng-dashboard-benchmark-results
               [benchmarks]="benchmarkGroup.lintCold"
               >Lint - Cold</nx-ng-dashboard-benchmark-results
-            >
-          </nx-ng-dashboard-panel>
-          <nx-ng-dashboard-panel>
-            <nx-ng-dashboard-benchmark-results
-              [benchmarks]="benchmarkGroup.lintWarm"
-              >Lint - Warm</nx-ng-dashboard-benchmark-results
             >
           </nx-ng-dashboard-panel>
         </div>

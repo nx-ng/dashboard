@@ -5,19 +5,17 @@
   <div class="grid grid-rows-1 grid-cols-2">
     <span class="font-semibold">Cold: </span>
     <span>{{ benchmark.buildCold.results[0].mean | toSeconds }}</span>
-    <span class="font-semibold">Warm: </span>
-    <span>{{ benchmark.buildWarm.results[0].mean | toSeconds }}</span>
+    <span class="font-semibold">Cache: </span>
+    <span>{{
+      benchmark.buildCache && benchmark.buildCache.results[0].mean | toSeconds
+    }}</span>
   </div>
   <div class="grid grid-rows-1 grid-cols-2">
     <span class="font-semibold">Cold: </span>
     <span>{{ benchmark.testCold.results[0].mean | toSeconds }}</span>
-    <span class="font-semibold">Warm: </span>
-    <span>{{ benchmark.testWarm.results[0].mean | toSeconds }}</span>
   </div>
   <div class="grid grid-rows-1 grid-cols-2">
     <span class="font-semibold">Cold: </span>
     <span>{{ benchmark.lintCold.results[0].mean | toSeconds }}</span>
-    <span class="font-semibold">Warm: </span>
-    <span>{{ benchmark.lintWarm.results[0].mean | toSeconds }}</span>
   </div>
 </div>
